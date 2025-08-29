@@ -1,0 +1,50 @@
+{
+  "id": "3d294689-c045-4c5a-a2c2-4026810571b1",
+  "name": "GSTR",
+  "publisher": "ISPL",
+  "version": "1.0.0.3",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+    {
+      "name": "India GST",
+      "id": "db643212-b7fb-4dd4-b5a8-cb44ac714461",
+      "publisher": "Microsoft",
+      "version": "19.0.0.0"
+    },
+    {
+      "name": "India Tax Base",
+      "id": "d3c551dd-5903-4194-b153-04ced9d29a2c",
+      "publisher": "Microsoft",
+      "version": "19.0.0.0"
+    },
+    {
+      "name": "Tax Engine",
+      "id": "c1eafb3f-e397-468e-bdb4-ecc5c317ca00",
+      "publisher": "Microsoft",
+      "version": "19.0.0.0"
+    },
+    {
+      "name": "India Reports",
+      "id": "050f6146-bffd-40de-942c-d0dd510ec20f",
+      "publisher": "Microsoft",
+      "version": "19.0.0.0"
+    }
+  ],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "24.0.0.0",
+  "idRanges": [
+    {
+      "from": 76951,
+      "to": 77100
+    }
+  ],
+  "showMyCode": true,
+  "runtime": "13.0"
+}

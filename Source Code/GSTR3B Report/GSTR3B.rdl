@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="GSTRLbl">
+          <DataField>GSTRLbl</DataField>
+        </Field>
+        <Field Name="RuleLbl">
+          <DataField>RuleLbl</DataField>
+        </Field>
+        <Field Name="YearLbl">
+          <DataField>YearLbl</DataField>
+        </Field>
+        <Field Name="MonthLbl">
+          <DataField>MonthLbl</DataField>
+        </Field>
+        <Field Name="GSTINLbl">
+          <DataField>GSTINLbl</DataField>
+        </Field>
+        <Field Name="LegalNameLbl">
+          <DataField>LegalNameLbl</DataField>
+        </Field>
+        <Field Name="OutwardSpplyLbl">
+          <DataField>OutwardSpplyLbl</DataField>
+        </Field>
+        <Field Name="NatureofSpplyLbl">
+          <DataField>NatureofSpplyLbl</DataField>
+        </Field>
+        <Field Name="TotTaxableLbl">
+          <DataField>TotTaxableLbl</DataField>
+        </Field>
+        <Field Name="IntegratedLbl">
+          <DataField>IntegratedLbl</DataField>
+        </Field>
+        <Field Name="CentralLbl">
+          <DataField>CentralLbl</DataField>
+        </Field>
+        <Field Name="StateTaxLbl">
+          <DataField>StateTaxLbl</DataField>
+        </Field>
+        <Field Name="CessLbl">
+          <DataField>CessLbl</DataField>
+        </Field>
+        <Field Name="OutwardTaxableSpplyLbl">
+          <DataField>OutwardTaxableSpplyLbl</DataField>
+        </Field>
+        <Field Name="OutwardTaxableSpplyZeroLbl">
+          <DataField>OutwardTaxableSpplyZeroLbl</DataField>
+        </Field>
+        <Field Name="OutwardTaxableSpplyNilLbl">
+          <DataField>OutwardTaxableSpplyNilLbl</DataField>
+        </Field>
+        <Field Name="InwardSpplyLbl">
+          <DataField>InwardSpplyLbl</DataField>
+        </Field>
+        <Field Name="NonGSTOutwardSpplyLbl">
+          <DataField>NonGSTOutwardSpplyLbl</DataField>
+        </Field>
+        <Field Name="UnregCompoLbl">
+          <DataField>UnregCompoLbl</DataField>
+        </Field>
+        <Field Name="PlaceOfSupplyLbl">
+          <DataField>PlaceOfSupplyLbl</DataField>
+        </Field>
+        <Field Name="IntegratedTaxLbl">
+          <DataField>IntegratedTaxLbl</DataField>
+        </Field>
+        <Field Name="EligibleITCLbl">
+          <DataField>EligibleITCLbl</DataField>
+        </Field>
+        <Field Name="NatureOfSuppliesLbl">
+          <DataField>NatureOfSuppliesLbl</DataField>
+        </Field>
+        <Field Name="ITCAvlLbl">
+          <DataField>ITCAvlLbl</DataField>
+        </Field>
+        <Field Name="ImportGoodLbl">
+          <DataField>ImportGoodLbl</DataField>
+        </Field>
+        <Field Name="ImportServiceLbl">
+          <DataField>ImportServiceLbl</DataField>
+        </Field>
+        <Field Name="InwrdReverseLbl">
+          <DataField>InwrdReverseLbl</DataField>
+        </Field>
+        <Field Name="InwrdISDLbl">
+          <DataField>InwrdISDLbl</DataField>
+        </Field>
+        <Field Name="AllITCLbl">
+          <DataField>AllITCLbl</DataField>
+        </Field>
+        <Field Name="ITCReverseLbl">
+          <DataField>ITCReverseLbl</DataField>
+        </Field>
+        <Field Name="RulesLbl">
+          <DataField>RulesLbl</DataField>
+        </Field>
+        <Field Name="OthersLbl">
+          <DataField>OthersLbl</DataField>
+        </Field>
+        <Field Name="NetITCLbl">
+          <DataField>NetITCLbl</DataField>
+        </Field>
+        <Field Name="IneligibleITCLbl">
+          <DataField>IneligibleITCLbl</DataField>
+        </Field>
+        <Field Name="SectionLbl">
+          <DataField>SectionLbl</DataField>
+        </Field>
+        <Field Name="ValuesExemptLbl">
+          <DataField>ValuesExemptLbl</DataField>
+        </Field>
+        <Field Name="InterStateSpplyLbl">
+          <DataField>InterStateSpplyLbl</DataField>
+        </Field>
+        <Field Name="IntraStateLbl">
+          <DataField>IntraStateLbl</DataField>
+        </Field>
+        <Field Name="SupplierCompLbl">
+          <DataField>SupplierCompLbl</DataField>
+        </Field>
+        <Field Name="NonGSTSpply">
+          <DataField>NonGSTSpply</DataField>
+        </Field>
+        <Field Name="PaymentLbl">
+          <DataField>PaymentLbl</DataField>
+        </Field>
+        <Field Name="DescLbl">
+          <DataField>DescLbl</DataField>
+        </Field>
+        <Field Name="TaxLbl">
+          <DataField>TaxLbl</DataField>
+        </Field>
+        <Field Name="PayableLbl">
+          <DataField>PayableLbl</DataField>
+        </Field>
+        <Field Name="PaidITCLbl">
+          <DataField>PaidITCLbl</DataField>
+        </Field>
+        <Field Name="TaxPaidLbl">
+          <DataField>TaxPaidLbl</DataField>
+        </Field>
+        <Field Name="TDSTCSLbl">
+          <DataField>TDSTCSLbl</DataField>
+        </Field>
+        <Field Name="TaxCessLbl">
+          <DataField>TaxCessLbl</DataField>
+        </Field>
+        <Field Name="CashLbl">
+          <DataField>CashLbl</DataField>
+        </Field>
+        <Field Name="InterestLbl">
+          <DataField>InterestLbl</DataField>
+        </Field>
+        <Field Name="LateFeeLbl">
+          <DataField>LateFeeLbl</DataField>
+        </Field>
+        <Field Name="TDSTCSCrLbl">
+          <DataField>TDSTCSCrLbl</DataField>
+        </Field>
+        <Field Name="DetailsLbl">
+          <DataField>DetailsLbl</DataField>
+        </Field>
+        <Field Name="TDSLbl">
+          <DataField>TDSLbl</DataField>
+        </Field>
+        <Field Name="TCSLbl">
+          <DataField>TCSLbl</DataField>
+        </Field>
+        <Field Name="VerificationLbl">
+          <DataField>VerificationLbl</DataField>
+        </Field>
+        <Field Name="VerifyTxtLbl">
+          <DataField>VerifyTxtLbl</DataField>
+        </Field>
+        <Field Name="PlaceLbl">
+          <DataField>PlaceLbl</DataField>
+        </Field>
+        <Field Name="DateLbl">
+          <DataField>DateLbl</DataField>
+        </Field>
+        <Field Name="Place">
+          <DataField>Place</DataField>
+        </Field>
+        <Field Name="PostingDate">
+          <DataField>PostingDate</DataField>
+        </Field>
+        <Field Name="ResponsibleLbl">
+          <DataField>ResponsibleLbl</DataField>
+        </Field>
+        <Field Name="SignatoryLbl">
+          <DataField>SignatoryLbl</DataField>
+        </Field>
+        <Field Name="GSTIN">
+          <DataField>GSTIN</DataField>
+        </Field>
+        <Field Name="Year">
+          <DataField>Year</DataField>
+        </Field>
+        <Field Name="Month">
+          <DataField>Month</DataField>
+        </Field>
+        <Field Name="LegalName">
+          <DataField>LegalName</DataField>
+        </Field>
+        <Field Name="GSTINChar1">
+          <DataField>GSTINChar1</DataField>
+        </Field>
+        <Field Name="GSTINChar2">
+          <DataField>GSTINChar2</DataField>
+        </Field>
+        <Field Name="GSTINChar3">
+          <DataField>GSTINChar3</DataField>
+        </Field>
+        <Field Name="GSTINChar4">
+          <DataField>GSTINChar4</DataField>
+        </Field>
+        <Field Name="GSTINChar5">
+          <DataField>GSTINChar5</DataField>
+        </Field>
+        <Field Name="GSTINChar6">
+          <DataField>GSTINChar6</DataField>
+        </Field>
+        <Field Name="GSTINChar7">
+          <DataField>GSTINChar7</DataField>
+        </Field>
+        <Field Name="GSTINChar8">
+          <DataField>GSTINChar8</DataField>
+        </Field>
+        <Field Name="GSTINChar9">
+          <DataField>GSTINChar9</DataField>
+        </Field>
+        <Field Name="GSTINChar10">
+          <DataField>GSTINChar10</DataField>
+        </Field>
+        <Field Name="GSTINChar11">
+          <DataField>GSTINChar11</DataField>
+        </Field>
+        <Field Name="GSTINChar12">
+          <DataField>GSTINChar12</DataField>
+        </Field>
+        <Field Name="GSTINChar13">
+          <DataField>GSTINChar13</DataField>
+        </Field>
+        <Field Name="GSTINChar14">
+          <DataField>GSTINChar14</DataField>
+        </Field>
+        <Field Name="GSTINChar15">
+          <DataField>GSTINChar15</DataField>
+        </Field>
+        <Field Name="OwrdtaxableTotalAmount">
+          <DataField>OwrdtaxableTotalAmount</DataField>
+        </Field>
+        <Field Name="OwrdtaxableTotalAmountFormat">
+          <DataField>OwrdtaxableTotalAmountFormat</DataField>
+        </Field>
+        <Field Name="OwrdtaxableIGSTAmount">
+          <DataField>OwrdtaxableIGSTAmount</DataField>
+        </Field>
+        <Field Name="OwrdtaxableIGSTAmountFormat">
+          <DataField>OwrdtaxableIGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="OwrdtaxableCGSTAmount">
+          <DataField>OwrdtaxableCGSTAmount</DataField>
+        </Field>
+        <Field Name="OwrdtaxableCGSTAmountFormat">
+          <DataField>OwrdtaxableCGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="OwrdtaxableSGSTUTGSTAmount">
+          <DataField>OwrdtaxableSGSTUTGSTAmount</DataField>
+        </Field>
+        <Field Name="OwrdtaxableSGSTUTGSTAmountFormat">
+          <DataField>OwrdtaxableSGSTUTGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="OwrdtaxableCESSAmount">
+          <DataField>OwrdtaxableCESSAmount</DataField>
+        </Field>
+        <Field Name="OwrdtaxableCESSAmountFormat">
+          <DataField>OwrdtaxableCESSAmountFormat</DataField>
+        </Field>
+        <Field Name="OwrdZeroTotalAmount">
+          <DataField>OwrdZeroTotalAmount</DataField>
+        </Field>
+        <Field Name="OwrdZeroTotalAmountFormat">
+          <DataField>OwrdZeroTotalAmountFormat</DataField>
+        </Field>
+        <Field Name="OwrdZeroIGSTAmount">
+          <DataField>OwrdZeroIGSTAmount</DataField>
+        </Field>
+        <Field Name="OwrdZeroIGSTAmountFormat">
+          <DataField>OwrdZeroIGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="OwrdZeroCGSTAmount">
+          <DataField>OwrdZeroCGSTAmount</DataField>
+        </Field>
+        <Field Name="OwrdZeroCGSTAmountFormat">
+          <DataField>OwrdZeroCGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="OwrdZeroSGSTUTGSTAmount">
+          <DataField>OwrdZeroSGSTUTGSTAmount</DataField>
+        </Field>
+        <Field Name="OwrdZeroSGSTUTGSTAmountFormat">
+          <DataField>OwrdZeroSGSTUTGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="OwrdZeroCESSAmount">
+          <DataField>OwrdZeroCESSAmount</DataField>
+        </Field>
+        <Field Name="OwrdZeroCESSAmountFormat">
+          <DataField>OwrdZeroCESSAmountFormat</DataField>
+        </Field>
+        <Field Name="OwrdNilTotalAmount">
+          <DataField>OwrdNilTotalAmount</DataField>
+        </Field>
+        <Field Name="OwrdNilTotalAmountFormat">
+          <DataField>OwrdNilTotalAmountFormat</DataField>
+        </Field>
+        <Field Name="OwrdNilIGSTAmount">
+          <DataField>OwrdNilIGSTAmount</DataField>
+        </Field>
+        <Field Name="OwrdNilIGSTAmountFormat">
+          <DataField>OwrdNilIGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="OwrdNilCGSTAmount">
+          <DataField>OwrdNilCGSTAmount</DataField>
+        </Field>
+        <Field Name="OwrdNilCGSTAmountFormat">
+          <DataField>OwrdNilCGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="OwrdNilSGSTUTGSTAmount">
+          <DataField>OwrdNilSGSTUTGSTAmount</DataField>
+        </Field>
+        <Field Name="OwrdNilSGSTUTGSTAmountFormat">
+          <DataField>OwrdNilSGSTUTGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="OwrdNilCESSAmount">
+          <DataField>OwrdNilCESSAmount</DataField>
+        </Field>
+        <Field Name="OwrdNilCESSAmountFormat">
+          <DataField>OwrdNilCESSAmountFormat</DataField>
+        </Field>
+        <Field Name="InwrdtotalAmount">
+          <DataField>InwrdtotalAmount</DataField>
+        </Field>
+        <Field Name="InwrdtotalAmountFormat">
+          <DataField>InwrdtotalAmountFormat</DataField>
+        </Field>
+        <Field Name="InwrdIGSTAmount">
+          <DataField>InwrdIGSTAmount</DataField>
+        </Field>
+        <Field Name="InwrdIGSTAmountFormat">
+          <DataField>InwrdIGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="InwrdCGSTAmount">
+          <DataField>InwrdCGSTAmount</DataField>
+        </Field>
+        <Field Name="InwrdCGSTAmountFormat">
+          <DataField>InwrdCGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="InwrdSGSTUTGSTAmount">
+          <DataField>InwrdSGSTUTGSTAmount</DataField>
+        </Field>
+        <Field Name="InwrdSGSTUTGSTAmountFormat">
+          <DataField>InwrdSGSTUTGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="InwrdCESSAmount">
+          <DataField>InwrdCESSAmount</DataField>
+        </Field>
+        <Field Name="InwrdCESSAmountFormat">
+          <DataField>InwrdCESSAmountFormat</DataField>
+        </Field>
+        <Field Name="OwrdNonGSTTotalAmount">
+          <DataField>OwrdNonGSTTotalAmount</DataField>
+        </Field>
+        <Field Name="OwrdNonGSTTotalAmountFormat">
+          <DataField>OwrdNonGSTTotalAmountFormat</DataField>
+        </Field>
+        <Field Name="ImportGoodsIGSTAmount">
+          <DataField>ImportGoodsIGSTAmount</DataField>
+        </Field>
+        <Field Name="ImportGoodsIGSTAmountFormat">
+          <DataField>ImportGoodsIGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="ImportGoodsCGSTAmount">
+          <DataField>ImportGoodsCGSTAmount</DataField>
+        </Field>
+        <Field Name="ImportGoodsCGSTAmountFormat">
+          <DataField>ImportGoodsCGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="ImportGoodsSGSTUTGSTAmount">
+          <DataField>ImportGoodsSGSTUTGSTAmount</DataField>
+        </Field>
+        <Field Name="ImportGoodsSGSTUTGSTAmountFormat">
+          <DataField>ImportGoodsSGSTUTGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="ImportGoodsCESSAmount">
+          <DataField>ImportGoodsCESSAmount</DataField>
+        </Field>
+        <Field Name="ImportGoodsCESSAmountFormat">
+          <DataField>ImportGoodsCESSAmountFormat</DataField>
+        </Field>
+        <Field Name="ImportServiceIGSTAmount">
+          <DataField>ImportServiceIGSTAmount</DataField>
+        </Field>
+        <Field Name="ImportServiceIGSTAmountFormat">
+          <DataField>ImportServiceIGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="ImportServiceCGSTAmount">
+          <DataField>ImportServiceCGSTAmount</DataField>
+        </Field>
+        <Field Name="ImportServiceCGSTAmountFormat">
+          <DataField>ImportServiceCGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="ImportServiceSGSTUTGSTAmount">
+          <DataField>ImportServiceSGSTUTGSTAmount</DataField>
+        </Field>
+        <Field Name="ImportServiceSGSTUTGSTAmountFormat">
+          <DataField>ImportServiceSGSTUTGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="ImportServiceCESSAmount">
+          <DataField>ImportServiceCESSAmount</DataField>
+        </Field>
+        <Field Name="ImportServiceCESSAmountFormat">
+          <DataField>ImportServiceCESSAmountFormat</DataField>
+        </Field>
+        <Field Name="InwrdReverseIGSTAmount">
+          <DataField>InwrdReverseIGSTAmount</DataField>
+        </Field>
+        <Field Name="InwrdReverseIGSTAmountFormat">
+          <DataField>InwrdReverseIGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="InwrdReverseCGSTAmount">
+          <DataField>InwrdReverseCGSTAmount</DataField>
+        </Field>
+        <Field Name="InwrdReverseCGSTAmountFormat">
+          <DataField>InwrdReverseCGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="InwrdReverseSGSTUTGSTAmount">
+          <DataField>InwrdReverseSGSTUTGSTAmount</DataField>
+        </Field>
+        <Field Name="InwrdReverseSGSTUTGSTAmountFormat">
+          <DataField>InwrdReverseSGSTUTGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="InwrdReverseCESSAmount">
+          <DataField>InwrdReverseCESSAmount</DataField>
+        </Field>
+        <Field Name="InwrdReverseCESSAmountFormat">
+          <DataField>InwrdReverseCESSAmountFormat</DataField>
+        </Field>
+        <Field Name="AllOtherITCIGSTAmount">
+          <DataField>AllOtherITCIGSTAmount</DataField>
+        </Field>
+        <Field Name="AllOtherITCIGSTAmountFormat">
+          <DataField>AllOtherITCIGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="AllOtherITCCGSTAmount">
+          <DataField>AllOtherITCCGSTAmount</DataField>
+        </Field>
+        <Field Name="AllOtherITCCGSTAmountFormat">
+          <DataField>AllOtherITCCGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="AllOtherITCSGSTUTGSTAmount">
+          <DataField>AllOtherITCSGSTUTGSTAmount</DataField>
+        </Field>
+        <Field Name="AllOtherITCSGSTUTGSTAmountFormat">
+          <DataField>AllOtherITCSGSTUTGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="AllOtherITCCESSAmount">
+          <DataField>AllOtherITCCESSAmount</DataField>
+        </Field>
+        <Field Name="AllOtherITCCESSAmountFormat">
+          <DataField>AllOtherITCCESSAmountFormat</DataField>
+        </Field>
+        <Field Name="IneligibleITCIGSTAmount">
+          <DataField>IneligibleITCIGSTAmount</DataField>
+        </Field>
+        <Field Name="IneligibleITCIGSTAmountFormat">
+          <DataField>IneligibleITCIGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="IneligibleITCCGSTAmount">
+          <DataField>IneligibleITCCGSTAmount</DataField>
+        </Field>
+        <Field Name="IneligibleITCCGSTAmountFormat">
+          <DataField>IneligibleITCCGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="IneligibleITCSGSTUTGSTAmount">
+          <DataField>IneligibleITCSGSTUTGSTAmount</DataField>
+        </Field>
+        <Field Name="IneligibleITCSGSTUTGSTAmountFormat">
+          <DataField>IneligibleITCSGSTUTGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="IneligibleITCCESSAmount">
+          <DataField>IneligibleITCCESSAmount</DataField>
+        </Field>
+        <Field Name="IneligibleITCCESSAmountFormat">
+          <DataField>IneligibleITCCESSAmountFormat</DataField>
+        </Field>
+        <Field Name="InwrdISDIGSTAmount">
+          <DataField>InwrdISDIGSTAmount</DataField>
+        </Field>
+        <Field Name="InwrdISDIGSTAmountFormat">
+          <DataField>InwrdISDIGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="InwrdISDCGSTAmount">
+          <DataField>InwrdISDCGSTAmount</DataField>
+        </Field>
+        <Field Name="InwrdISDCGSTAmountFormat">
+          <DataField>InwrdISDCGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="InwrdISDSGSTUTGSTAmount">
+          <DataField>InwrdISDSGSTUTGSTAmount</DataField>
+        </Field>
+        <Field Name="InwrdISDSGSTUTGSTAmountFormat">
+          <DataField>InwrdISDSGSTUTGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="InwrdISDCESSAmount">
+          <DataField>InwrdISDCESSAmount</DataField>
+        </Field>
+        <Field Name="InwrdISDCESSAmountFormat">
+          <DataField>InwrdISDCESSAmountFormat</DataField>
+        </Field>
+        <Field Name="InterStateCompSupplyAmount">
+          <DataField>InterStateCompSupplyAmount</DataField>
+        </Field>
+        <Field Name="InterStateCompSupplyAmountFormat">
+          <DataField>InterStateCompSupplyAmountFormat</DataField>
+        </Field>
+        <Field Name="IntraStateCompSupplyAmount">
+          <DataField>IntraStateCompSupplyAmount</DataField>
+        </Field>
+        <Field Name="IntraStateCompSupplyAmountFormat">
+          <DataField>IntraStateCompSupplyAmountFormat</DataField>
+        </Field>
+        <Field Name="PurchInterStateAmount">
+          <DataField>PurchInterStateAmount</DataField>
+        </Field>
+        <Field Name="PurchInterStateAmountFormat">
+          <DataField>PurchInterStateAmountFormat</DataField>
+        </Field>
+        <Field Name="PurchIntraStateAmount">
+          <DataField>PurchIntraStateAmount</DataField>
+        </Field>
+        <Field Name="PurchIntraStateAmountFormat">
+          <DataField>PurchIntraStateAmountFormat</DataField>
+        </Field>
+        <Field Name="SupplyUnregLbl">
+          <DataField>SupplyUnregLbl</DataField>
+        </Field>
+        <Field Name="SupplyCompLbl">
+          <DataField>SupplyCompLbl</DataField>
+        </Field>
+        <Field Name="SupplyUINLbl">
+          <DataField>SupplyUINLbl</DataField>
+        </Field>
+        <Field Name="OthersIGSTAmount">
+          <DataField>OthersIGSTAmount</DataField>
+        </Field>
+        <Field Name="OthersIGSTAmountFormat">
+          <DataField>OthersIGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="OthersCGSTAmount">
+          <DataField>OthersCGSTAmount</DataField>
+        </Field>
+        <Field Name="OthersCGSTAmountFormat">
+          <DataField>OthersCGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="OthersSGSTUTGSTAmount">
+          <DataField>OthersSGSTUTGSTAmount</DataField>
+        </Field>
+        <Field Name="OthersSGSTUTGSTAmountFormat">
+          <DataField>OthersSGSTUTGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="OthersCESSAmount">
+          <DataField>OthersCESSAmount</DataField>
+        </Field>
+        <Field Name="OthersCESSAmountFormat">
+          <DataField>OthersCESSAmountFormat</DataField>
+        </Field>
+        <Field Name="InwrdtotalAmount1">
+          <DataField>InwrdtotalAmount1</DataField>
+        </Field>
+        <Field Name="InwrdtotalAmount1Format">
+          <DataField>InwrdtotalAmount1Format</DataField>
+        </Field>
+        <Field Name="InwrdIGSTAmount1">
+          <DataField>InwrdIGSTAmount1</DataField>
+        </Field>
+        <Field Name="InwrdIGSTAmount1Format">
+          <DataField>InwrdIGSTAmount1Format</DataField>
+        </Field>
+        <Field Name="InwrdCGSTAmount1">
+          <DataField>InwrdCGSTAmount1</DataField>
+        </Field>
+        <Field Name="InwrdCGSTAmount1Format">
+          <DataField>InwrdCGSTAmount1Format</DataField>
+        </Field>
+        <Field Name="InwrdSGSTUTGSTAmount1">
+          <DataField>InwrdSGSTUTGSTAmount1</DataField>
+        </Field>
+        <Field Name="InwrdSGSTUTGSTAmount1Format">
+          <DataField>InwrdSGSTUTGSTAmount1Format</DataField>
+        </Field>
+        <Field Name="InwrdCESSAmount1">
+          <DataField>InwrdCESSAmount1</DataField>
+        </Field>
+        <Field Name="InwrdCESSAmount1Format">
+          <DataField>InwrdCESSAmount1Format</DataField>
+        </Field>
+        <Field Name="InwrdReverseIGSTAmount1">
+          <DataField>InwrdReverseIGSTAmount1</DataField>
+        </Field>
+        <Field Name="InwrdReverseIGSTAmount1Format">
+          <DataField>InwrdReverseIGSTAmount1Format</DataField>
+        </Field>
+        <Field Name="InwrdReverseCGSTAmount1">
+          <DataField>InwrdReverseCGSTAmount1</DataField>
+        </Field>
+        <Field Name="InwrdReverseCGSTAmount1Format">
+          <DataField>InwrdReverseCGSTAmount1Format</DataField>
+        </Field>
+        <Field Name="InwrdReverseSGSTUTGSTAmount1">
+          <DataField>InwrdReverseSGSTUTGSTAmount1</DataField>
+        </Field>
+        <Field Name="InwrdReverseSGSTUTGSTAmount1Format">
+          <DataField>InwrdReverseSGSTUTGSTAmount1Format</DataField>
+        </Field>
+        <Field Name="InwrdReverseCESSAmount1">
+          <DataField>InwrdReverseCESSAmount1</DataField>
+        </Field>
+        <Field Name="InwrdReverseCESSAmount1Format">
+          <DataField>InwrdReverseCESSAmount1Format</DataField>
+        </Field>
+        <Field Name="ImportServiceIGSTAmount1">
+          <DataField>ImportServiceIGSTAmount1</DataField>
+        </Field>
+        <Field Name="ImportServiceIGSTAmount1Format">
+          <DataField>ImportServiceIGSTAmount1Format</DataField>
+        </Field>
+        <Field Name="ImportServiceCGSTAmount1">
+          <DataField>ImportServiceCGSTAmount1</DataField>
+        </Field>
+        <Field Name="ImportServiceCGSTAmount1Format">
+          <DataField>ImportServiceCGSTAmount1Format</DataField>
+        </Field>
+        <Field Name="ImportServiceSGSTUTGSTAmount1">
+          <DataField>ImportServiceSGSTUTGSTAmount1</DataField>
+        </Field>
+        <Field Name="ImportServiceSGSTUTGSTAmount1Format">
+          <DataField>ImportServiceSGSTUTGSTAmount1Format</DataField>
+        </Field>
+        <Field Name="ImportServiceCESSAmount1">
+          <DataField>ImportServiceCESSAmount1</DataField>
+        </Field>
+        <Field Name="ImportServiceCESSAmount1Format">
+          <DataField>ImportServiceCESSAmount1Format</DataField>
+        </Field>
+        <Field Name="TDSCGSTAmount">
+          <DataField>TDSCGSTAmount</DataField>
+        </Field>
+        <Field Name="TDSCGSTAmountFormat">
+          <DataField>TDSCGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="TDSSGSTAmount">
+          <DataField>TDSSGSTAmount</DataField>
+        </Field>
+        <Field Name="TDSSGSTAmountFormat">
+          <DataField>TDSSGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="TDSIGSTAmount">
+          <DataField>TDSIGSTAmount</DataField>
+        </Field>
+        <Field Name="TDSIGSTAmountFormat">
+          <DataField>TDSIGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="TCSCGSTAmount">
+          <DataField>TCSCGSTAmount</DataField>
+        </Field>
+        <Field Name="TCSCGSTAmountFormat">
+          <DataField>TCSCGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="TCSSGSTAmount">
+          <DataField>TCSSGSTAmount</DataField>
+        </Field>
+        <Field Name="TCSSGSTAmountFormat">
+          <DataField>TCSSGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="TCSIGSTAmount">
+          <DataField>TCSIGSTAmount</DataField>
+        </Field>
+        <Field Name="TCSIGSTAmountFormat">
+          <DataField>TCSIGSTAmountFormat</DataField>
+        </Field>
+        <Field Name="InstructionsLbl">
+          <DataField>InstructionsLbl</DataField>
+        </Field>
+        <Field Name="Instruction1Lbl">
+          <DataField>Instruction1Lbl</DataField>
+        </Field>
+        <Field Name="Instruction2Lbl">
+          <DataField>Instruction2Lbl</DataField>
+        </Field>
+        <Field Name="Instruction3Lbl">
+          <DataField>Instruction3Lbl</DataField>
+        </Field>
+        <Field Name="PlaceOfSupplyUnreg">
+          <DataField>PlaceOfSupplyUnreg</DataField>
+        </Field>
+        <Field Name="SupplyBaseAmtUnreg">
+          <DataField>SupplyBaseAmtUnreg</DataField>
+        </Field>
+        <Field Name="SupplyBaseAmtUnregFormat">
+          <DataField>SupplyBaseAmtUnregFormat</DataField>
+        </Field>
+        <Field Name="SupplyIGSTAmtUnreg">
+          <DataField>SupplyIGSTAmtUnreg</DataField>
+        </Field>
+        <Field Name="SupplyIGSTAmtUnregFormat">
+          <DataField>SupplyIGSTAmtUnregFormat</DataField>
+        </Field>
+        <Field Name="PlaceOfSupplyUIN">
+          <DataField>PlaceOfSupplyUIN</DataField>
+        </Field>
+        <Field Name="SupplyBaseAmtUIN">
+          <DataField>SupplyBaseAmtUIN</DataField>
+        </Field>
+        <Field Name="SupplyBaseAmtUINFormat">
+          <DataField>SupplyBaseAmtUINFormat</DataField>
+        </Field>
+        <Field Name="SupplyIGSTAmtUIN">
+          <DataField>SupplyIGSTAmtUIN</DataField>
+        </Field>
+        <Field Name="SupplyIGSTAmtUINFormat">
+          <DataField>SupplyIGSTAmtUINFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>
